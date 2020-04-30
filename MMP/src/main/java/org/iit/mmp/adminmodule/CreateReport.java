@@ -13,38 +13,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CreateReport extends DriverScript
 {
 	
-	public static void main(String[] args) throws Exception 
-	{
-
-			String admin_username="Thomas_444";
-			String admin_password="Edison_444";
-			String patient_ssn="462379048";
-			String patient_firstname="Ria";
-			String appDate="04/15/2020";
-			String reportName = "MRI Report";
-			String reportDesc="Report of leg MRI";
-			String reportFile="C:\\WORKSPACE2\\Test_Report.txt";
-				
-			String url="http://96.84.175.78/MMP-Release2-Admin-Build.2.1.000/login.php";
-			
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.get(url);
-			
-			System.out.println(admin_username+"  "+admin_password);
-			
-			AdminLogin al = new AdminLogin();
-			al.adminLogin(admin_username, admin_password);
-			
-			RetrievePatient rp = new RetrievePatient();
-			rp.retrievePatient(patient_ssn, patient_firstname);
-			
-			CreateReport cr = new CreateReport();
-			cr.createReport(appDate, reportName, reportFile, reportDesc);	
-			
-	} // main()
-	
 	public void createReport(String appDate, String  reportName, String  reportFile, String  reportDesc) throws Exception
 	{
 			driver.findElement(By.xpath("//input[@value='Reports']")).click();

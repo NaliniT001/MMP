@@ -12,16 +12,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CheckMessages extends DriverScript
 {
-
-	/*
-	WebDriver driver;
-	
-	public CheckMessages(WebDriver driver)
-	{
-		this.driver = driver;
-	}
-	*/
-	
 		
 	// Get  messages
 	

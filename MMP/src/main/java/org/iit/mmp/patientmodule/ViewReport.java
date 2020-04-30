@@ -9,23 +9,6 @@ import java.util.List;
 
 public class ViewReport extends DriverScript
 {
-
-	public static void main(String[] args) 
-	{
-		String reportName = "ECG";
-		String reportDesc="ECG for the date 06/15/2019";
-		ViewReport vp = new ViewReport();
-		vp.initBrowser("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
-		PatientLogin pl = new PatientLogin();
-		pl.patientLogin("ria1", "Ria12345");
-		List<WebElement> tablerow = vp.retrieveReport();
-		boolean reportPresent = vp.validateReport(tablerow, reportName, reportDesc);
-		Assert.assertTrue(reportPresent);
-		pl.logout();
-		driver.close();
-		//Assert.assertTrue(vp.validateReport(tablerow, reportName, reportDesc));	
-		   
-	} //main
 	
 	public List<WebElement> retrieveReport()
 	{

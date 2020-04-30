@@ -12,21 +12,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CreateFeePage extends DriverScript
 {
 	
-// static WebDriver driver;
-	
-	//WebDriver driver;
-	String admin_username="Thomas_444";
-	String admin_password="Edison_444";
-	String patient_ssn="462379048";
-	String patient_firstname="Ria";
-	//String appdate="04/15/2020";
-	//String service="vaccination";
-	/*
-	public CreateFeePage(WebDriver driver)
-	{
-		this.driver = driver;
-	}*/	
-	
 	// Create Fee
 	public void createFee(String appdate, String service) throws Exception 
 	{

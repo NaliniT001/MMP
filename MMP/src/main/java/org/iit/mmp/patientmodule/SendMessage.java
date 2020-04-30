@@ -11,22 +11,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class SendMessage extends DriverScript
 {
 
-	/*
-	 
-	WebDriver driver;
-	
-	String subject = "Heart Burn";
-	String message = "Severe burning in stomach";
-	
-	*/
-		
-	/*
-	public SendMessage(WebDriver driver)
-	{
-		this.driver = driver;
-	}
-	*/
-	
 	// CreateMessage
 	
 	public void createMessage(String subject, String message) throws Exception

@@ -19,26 +19,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class RegistrationPage extends DriverScript
 {
-	/*
-	static HashMap<String,String> hMap = new HashMap<String,String>();
-	static Random rnd = new Random();
-	*/
-	public static void main (String args[]) throws Exception
-	{
-		WebDriverManager.chromedriver().setup();
-		driver  = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/registration.php");
-		
-		RegistrationPage rp = new RegistrationPage();
-		HashMap<String,String> hMap = rp.registerPatient();
-		Iterator<String> itr =  hMap.keySet().iterator();
-		while(itr.hasNext())
-		{
-			System.out.println(itr.next());
-		}
-		
-	} //main ()
 	
 	public HashMap<String,String> registerPatient() throws Exception
 	{

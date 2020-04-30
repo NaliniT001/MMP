@@ -6,15 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RetrievePatient extends DriverScript
 {
-	// WebDriver driver;
-	//String patient_ssn="462379048";
-	//String patient_firstname="Ria";
-	/*
-	public RetrievePatient(WebDriver driver)
-	{
-		this.driver = driver;
-	}
-	*/
+	
 	// retrieve patient
 	public void retrievePatient(String patient_ssn, String patient_firstname) throws Exception
 	{
