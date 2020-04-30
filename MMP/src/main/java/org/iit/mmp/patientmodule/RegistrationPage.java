@@ -4,8 +4,10 @@ package org.iit.mmp.patientmodule;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
+import org.iit.mmp.utility.DriverScript;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,19 +17,34 @@ import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class RegistrationPage 
+public class RegistrationPage extends DriverScript
 {
+	/*
 	static HashMap<String,String> hMap = new HashMap<String,String>();
 	static Random rnd = new Random();
-	
-	// defining a single instance of driver.
-	
-	static WebDriver driver;
+	*/
 	public static void main (String args[]) throws Exception
 	{
 		WebDriverManager.chromedriver().setup();
 		driver  = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/registration.php");
+		
+		RegistrationPage rp = new RegistrationPage();
+		HashMap<String,String> hMap = rp.registerPatient();
+		Iterator<String> itr =  hMap.keySet().iterator();
+		while(itr.hasNext())
+		{
+			System.out.println(itr.next());
+		}
+		
+	} //main ()
+	
+	public HashMap<String,String> registerPatient() throws Exception
+	{
+
+		HashMap<String,String> hMap = new HashMap<String,String>();
+		Random rnd = new Random();
 		
 		WebElement firstnameTxtField = driver.findElement(By.id("firstname"));
 		String fNameValue = "testFN" +  (char) (65+rnd.nextInt(26));
@@ -38,7 +55,6 @@ public class RegistrationPage
 		String LNameValue = "testLN" +  (char) (65+rnd.nextInt(26));
 		lastnameTxtField.sendKeys(LNameValue);
 		hMap.put("lastname", lastnameTxtField.getAttribute("value"));
-		
 		
 		WebElement stateTxtField = driver.findElement(By.id("state"));
 		stateTxtField.sendKeys("New York");
@@ -95,7 +111,7 @@ public class RegistrationPage
 		hMap.put("email", emailTxtField.getAttribute("value"));
 		
 		WebElement unameTxtField = driver.findElement(By.id("username"));
-		String unameValue = "testUname" +  (char) (65+rnd.nextInt(26));
+		String unameValue = "testUname" +  (char) (65+rnd.nextInt(26)) + (long) (10+rnd.nextInt(90));
 		unameTxtField.sendKeys(unameValue);
 		hMap.put("uname", unameTxtField.getAttribute("value"));
 		
@@ -127,6 +143,7 @@ public class RegistrationPage
 		hMap.put("successMsg", successMsg);
 		alrt.accept();
 		
-	} //main ()
+		return hMap;
+	}
 	
 }//RegistrationPage
